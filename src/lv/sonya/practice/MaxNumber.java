@@ -28,5 +28,27 @@ public class MaxNumber {
 			break;
 		}
 	}
+	
+	int[] numbers = new int[5];
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Input 5 positive numbers!");
+		for (int i = 0; i < 5; i++) {
+			numbers[i] = scanner.nextInt();
+		}
+		int first = numbers [0];
+		System.out.println("First number is " + first);
+		int maxnumber = numbers[0];
+			for(int i = 0; i < numbers.length; i++){
+				if(numbers[i] > maxnumber){
+					maxnumber = numbers[i];
+				}
+			}
+		System.out.println("Maxnumber is " + maxnumber);
+		int[] newnumbers = numbers;
+		int newfirst = newnumbers[0];
+		maxnumber = newnumbers[i];
+		newfirst = maxnumber;
+		System.out.println(Arrays.toString(newnumbers));
+		scanner.close();
 }
 
