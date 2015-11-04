@@ -13,11 +13,19 @@ public class ShoppingList {
 		int[] costArray = new int[5];
 
 		for (int a = 0; a < 5; a++) {
+			System.out.println("Enter name: ");
 			nameArray[a] = scanner.nextLine();
-			costArray[a] = scanner.nextInt();
+			System.out.println("Enter cost: ");
+			costArray[a] = Integer.valueOf(scanner.nextLine());
 		}
-		System.out.print(Arrays.toString(nameArray));
-		System.out.print(Arrays.toString(costArray));
+		System.out.println(Arrays.toString(nameArray));
+		System.out.println(Arrays.toString(costArray));
+
+		int sum = 0;
+		for (int a = 0; a < costArray.length; a++) {
+			sum = sum + costArray[a];
+		}
+		System.out.println("Total cost is " + sum);
 		scanner.close();
 	}
 }
