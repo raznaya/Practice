@@ -1,3 +1,5 @@
+package lv.sonya.practice;
+
 import java.util.Scanner;
 
 public class IsStringSymmetricalOrNot {
@@ -17,7 +19,5 @@ public class IsStringSymmetricalOrNot {
 		} else {
 			System.out.println("Your text is not symmetrical!");
 		}
-
 	}
-
 }
