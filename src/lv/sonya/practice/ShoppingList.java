@@ -1,31 +1,34 @@
 package lv.sonya.practice;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ShoppingList {
+	static String[] items = new String[10];
+	static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		System.out.println(
-				"Hello! I`m am Shopping List Program! Add some items, their cost and I`ll sum the total amount of money you need to spend.");
-		Scanner scanner = new Scanner(System.in);
-		String[] nameArray = new String[5];
-		int[] costArray = new int[5];
+		System.out.println("Welcome to Shopping List program! You can choose some options to do:");
+		System.out.println("1.Add an item (You can add up to 10 items)");
+		System.out.println("2.List items");
+		System.out.println("3.Delete an item");
+		System.out.println("4.Save list to file");
+		System.out.println("5.Load list from file");
+		System.out.println("6.Exit");
+		System.out.println("Input the number of option you would like to choose!");
 
-		for (int a = 0; a < 5; a++) {
-			System.out.println("Enter name: ");
-			nameArray[a] = scanner.nextLine();
-			System.out.println("Enter cost: ");
-			costArray[a] = Integer.valueOf(scanner.nextLine());
-		}
-		System.out.println(Arrays.toString(nameArray));
-		System.out.println(Arrays.toString(costArray));
+		int number = Integer.valueOf(scanner.nextLine());
 
-		int sum = 0;
-		for (int a = 0; a < costArray.length; a++) {
-			sum = sum + costArray[a];
+		if (number == 1) {
+			addItem();
 		}
-		System.out.println("Total cost is " + sum);
+	}
+
+	public static void addItem() {
+		System.out.println("Please add an item!");
+		String name = scanner.nextLine();
+		items[0] = name;
+		System.out.println("Item added: " + name);
 		scanner.close();
 	}
+
 }
