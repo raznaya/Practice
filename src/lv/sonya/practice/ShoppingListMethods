@@ -1,0 +1,22 @@
+package lv.sonya.shopping;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ShoppingList {
+	static Scanner scanner = new Scanner(System.in);
+	static List<String> list = new ArrayList<>();
+
+	public static void addItem() {
+		System.out.println("Please add an item!");
+		String name = scanner.nextLine();
+		list.add(name);
+		System.out.println("Item added: " + name);
+	}
+
+	public static void listItem() {
+		System.out.println(list);
+	}
+
+}
