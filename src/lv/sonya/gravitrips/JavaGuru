@@ -1,0 +1,51 @@
+package lv.sonya.gravitrips;
+
+public class Grid {
+
+	private int columns = 7;
+	private int rows = 6;
+
+	Coin[][] coins = new Coin[rows][columns];
+
+	public void putCoin(Coin coin, int columnIndex) {
+		columnIndex = columnIndex - 1;
+		for (int i = rows - 1; i >= 0; i--) {
+			if (coins[i][columnIndex] == null) {
+				coins[i][columnIndex] = coin;
+				break;
+			}
+		}
+	}
+
+	public boolean resolverHorizontal() {
+		//Coin coin;
+		int columnIndex = 0;
+		for (int i = rows - 1; i >= 0; i--) {
+			for (int a = 0; a < 3; a++) {
+				if (coins[a][columnIndex] == Coin.R){
+				} else {
+					if (coins[i][columnIndex] == Coin.W);
+					break;
+				}
+			}
+		}
+		System.out.println("Winner!");
+		return true;
+	}
+
+	// }
+
+	public void printGrid() {
+		for (Coin[] row : coins) {
+			String rowString = "|";
+			for (Coin coin : row) {
+				if (coin == null) {
+					rowString += " |";
+				} else {
+					rowString += coin + "|";
+				}
+			}
+			System.out.println(rowString);
+		}
+	}
+}
