@@ -1,7 +1,5 @@
 package lv.sonya.gravitrips;
 
-import java.util.Arrays;
-
 public class Grid {
 
 	private int columns = 7;
@@ -10,8 +8,9 @@ public class Grid {
 	Coin[][] coins = new Coin[rows][columns];
 
 	public void putCoin(Coin coin, int columnIndex) {
+		columnIndex = columnIndex - 1;
 		for (int i = rows - 1; i >= 0; i--) {
-			if (coins[i][columnIndex] != null) {
+			if (coins[i][columnIndex] == null) {
 				coins[i][columnIndex] = coin;
 				break;
 			}
@@ -19,8 +18,16 @@ public class Grid {
 	}
 
 	public void printGrid() {
-		for (Coin[] arr : coins) {
-			System.out.println(Arrays.toString(arr));
+		for (Coin[] row : coins) {
+			String rowString = "|";
+			for (Coin coin : row) {
+				if (coin == null) {
+					rowString += " |";
+				} else {
+					rowString += coin + "|";
+				}
+			}
+			System.out.println(rowString);
 		}
 	}
 }
