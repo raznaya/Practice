@@ -35,16 +35,16 @@ public class GameLauncher {
 			player1number = columnNumberInput();
 			if (player1number >= 0 && player1number <= 7) {
 				grid.putCoin(p1.getCoin(), player1number);
-
+				grid.printGrid();
 			}
 			System.out.println("Player 2 - enter column number and throw your coin!");
 			player2number = columnNumberInput();
 			if (player2number >= 0 && player2number <= 7) {
 				grid.putCoin(p2.getCoin(), player2number);
+				grid.printGrid();
 			} else {
 				throw new IllegalArgumentException("There are just 7 columns, enter number from 1 to 7!");
 			}
-			grid.printGrid();
 		}
 	}
 

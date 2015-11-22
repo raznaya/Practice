@@ -17,6 +17,23 @@ public class Grid {
 		}
 	}
 
+	public boolean resolverHorizontal(Coin coin) {
+		int count = 0;
+		for (int j = 0; j < rows - 1; j++) {
+			for (int i = 0; i < columns - 1; i++) {
+				if (coin.equals(coins[j][i])) {
+					count = count + 1;
+				} else {
+					count = 0;
+				}
+				if (count == 4) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	public void printGrid() {
 		for (Coin[] row : coins) {
 			String rowString = "|";
