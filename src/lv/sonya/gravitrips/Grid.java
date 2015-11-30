@@ -17,7 +17,7 @@ public class Grid {
 		}
 	}
 
-	public boolean resolverHorizontal(Coin coin) {
+	public boolean resolveHorizontal(Coin coin) {
 		int count = 0;
 		for (int j = 0; j < rows - 1; j++) {
 			for (int i = 0; i < columns - 1; i++) {
@@ -29,6 +29,36 @@ public class Grid {
 				if (count == 4) {
 					return true;
 				}
+			}
+		}
+		return false;
+	}
+
+	public boolean resolveVertical(Coin coin) {
+		int count = 0;
+		for (int j = columns - 1; j >= 0; j--) {
+			for (int i = rows - 1; i >= 0; i--) {
+				if (coin.equals(coins[i][j])) {
+					count = count + 1;
+				} else {
+					count = 0;
+				}
+				if (count == 4) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean resolve(Coin coin) {
+		boolean result = resolveHorizontal(coin);
+		if (result == true) {
+			return true;
+		} else {
+			result = resolveVertical(coin);
+			if (result == true) {
+				return true;
 			}
 		}
 		return false;
