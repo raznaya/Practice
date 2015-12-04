@@ -1,26 +1,15 @@
 package lv.sonya.gravitrips;
 
 public enum Coin {
+	X, O;
 
-	R("red"), W("white");
-
-	private String description;
-
-	private Coin(String description) {
-		this.description = description;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public static Coin parseByDescription(String description) {
+	public static Coin parseByName(String name) {
 		for (Coin m : Coin.values()) {
-			if (m.getDescription().equals(description)) {
+			if (m.name().equalsIgnoreCase(name)) {
 				return m;
 			}
 		}
-		throw new IllegalArgumentException("Description " + description + " not found");
+		throw new IllegalArgumentException("Name " + name + " not found");
 	}
 
 	@Override

@@ -4,66 +4,49 @@ import java.util.Scanner;
 
 public class GameLauncher {
 
+	private static Grid grid;
 	private static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		Grid grid = new Grid();
+		grid = new Grid();
 		System.out.println("Hello! Welcome to Gravitrips game!");
 
-		System.out.println("Player 1 choose a color!");
-		Coin player1coin = userInput();
+		System.out.println("Player 1 choose your coin - " + Coin.X + " or " + Coin.O);
+		Coin player1coin = chooseCoin();
 		Coin player2coin;
-		if (player1coin == Coin.W) {
-			player2coin = Coin.R;
+		if (player1coin == Coin.O) {
+			player2coin = Coin.X;
 		} else {
-			player2coin = Coin.W;
+			player2coin = Coin.O;
 		}
-		System.out.println("Player 2 is " + player2coin.getDescription() + ".");
+		System.out.println("Player 2 is " + player2coin + ".");
 
-		Player p1 = new Player(player1coin);
-		Player p2 = new Player(player2coin);
+		Player p1 = new PlayerHuman(player1coin);
+		Player p2 = new PlayerHuman(player2coin);
 
 		System.out.println("You see a grid with 7 columns and 6 rows.");
 		grid.printGrid();
 
-		int player1number;
-		int player2number;
-
-		// TODO: Add resolver.
 		while (true) {
-			System.out.println("Player 1 - enter column number and throw your coin!");
-			player1number = columnNumberInput();
-			if (player1number >= 0 && player1number <= 7) {
-				grid.putCoin(p1.getCoin(), player1number);
-				grid.printGrid();
-				if (grid.resolve(player1coin) == true) {
-					System.out.println("Player 1 is winner!");
-					break;
-				}
-			}
-			System.out.println("Player 2 - enter column number and throw your coin!");
-			player2number = columnNumberInput();
-			if (player2number >= 0 && player2number <= 7) {
-				grid.putCoin(p2.getCoin(), player2number);
-				grid.printGrid();
-				if (grid.resolve(player2coin) == true) {
-					System.out.println("Player 2 is winner!");
-					break;
-				}
-			} else {
-				throw new IllegalArgumentException("There are just 7 columns, enter number from 1 to 7!");
-			}
+			makeMove(p1, "Player 1");
+			makeMove(p2, "Player 2");
 		}
 	}
 
-	public static Coin userInput() {
+	private static boolean makeMove(Player player, String name) {
+		System.out.println(name + ", enter column number and throw your coin!");
+		int columnIndex = player.chooseColumn();
+		grid.putCoin(player.getCoin(), columnIndex);
+		grid.printGrid();
+		if (grid.resolve(player.getCoin()) == true) {
+			System.out.println(name + " is winner!");
+			return true;
+		}
+		return false;
+	}
+
+	private static Coin chooseCoin() {
 		String turn = String.valueOf(scanner.nextLine());
-		return Coin.parseByDescription(turn);
+		return Coin.parseByName(turn);
 	}
-
-	public static int columnNumberInput() {
-		int number = Integer.valueOf(scanner.nextLine());
-		return number;
-	}
-
 }

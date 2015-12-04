@@ -1,14 +1,8 @@
 package lv.sonya.gravitrips;
 
-public class Player {
-	private Coin coin;
+public interface Player {
 
-	public Player(Coin coin) {
-		this.coin = coin;
-	}
+	Coin getCoin();
 
-	public Coin getCoin() {
-		return coin;
-	}
-
+	int chooseColumn();
 }
