@@ -12,6 +12,14 @@ public enum Coin {
 		throw new IllegalArgumentException("Name " + name + " not found");
 	}
 
+	public Coin getOtherCoin() {
+		if (this == Coin.O) {
+			return Coin.X;
+		} else {
+			return Coin.O;
+		}
+	}
+
 	@Override
 	public String toString() {
 		return this.name();

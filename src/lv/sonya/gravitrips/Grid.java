@@ -2,8 +2,8 @@ package lv.sonya.gravitrips;
 
 public class Grid {
 
-	private int columns = 7;
-	private int rows = 6;
+	int columns = 7;
+	int rows = 6;
 
 	Coin[][] coins = new Coin[rows][columns];
 

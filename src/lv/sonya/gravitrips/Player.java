@@ -4,5 +4,5 @@ public interface Player {
 
 	Coin getCoin();
 
-	int chooseColumn();
+	int chooseColumn(Grid grid);
 }

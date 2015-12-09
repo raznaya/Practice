@@ -12,7 +12,7 @@ public class PlayerHuman extends AbstractPlayer {
 	}
 
 	@Override
-	public int chooseColumn() {
+	public int chooseColumn(Grid grid) {
 		int columnIndex = 0;
 		while (true) {
 			try {

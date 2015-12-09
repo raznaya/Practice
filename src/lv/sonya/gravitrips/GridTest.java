@@ -12,12 +12,12 @@ public class GridTest {
 			{Coin.O, null, null, null, null, null, null},
 			{null, Coin.O, null, null, null, null, null},
 			{null, null, null, null, null, null, null},
-			{null, null, null, Coin.O, null, null, null},
+			{Coin.O, Coin.O, Coin.O, Coin.O, null, null, null},
 			};
 		// @formatter:on
 
-		System.out.println("Red won? " + grid.resolve(Coin.X));
-		System.out.println("White won? " + grid.resolve(Coin.O));
-		System.out.println("White won? " + grid.resolveDiagonalLeft(Coin.O));
+		System.out.println("X won? " + grid.resolve(Coin.X));
+		System.out.println("O won? " + grid.resolve(Coin.O));
+		System.out.println("O won? " + grid.resolveDiagonalLeft(Coin.O));
 	}
 }
