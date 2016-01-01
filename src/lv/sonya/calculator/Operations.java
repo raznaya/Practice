@@ -2,15 +2,15 @@ package lv.sonya.calculator;
 
 public enum Operations {
 	
-	DIVIDE('d'), MULTIPLICATION('m'), SUBSTRACTION('s'), ADDITION('a');
+	DIVIDE("/"), MULTIPLICATION("*"), SUBSTRACTION("-"), ADDITION("+");
 
-	private char index;
+	private String index;
 	
-	private Operations(char index){
+	private Operations(String index){
 		this.index = index;
 	}
 	
-	public char getIndex(){
+	public String getIndex(){
 		return index;
 	}
 }
