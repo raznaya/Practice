@@ -13,15 +13,15 @@ public enum Coin {
 	}
 
 	public Coin getOtherCoin() {
-		if (this == Coin.O) {
-			return Coin.X;
+		if (this == O) {
+			return X;
 		} else {
-			return Coin.O;
+			return O;
 		}
 	}
 
 	@Override
 	public String toString() {
-		return this.name();
+		return name();
 	}
 }

@@ -1,5 +1,6 @@
 package lv.sonya.gravitrips;
 
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;

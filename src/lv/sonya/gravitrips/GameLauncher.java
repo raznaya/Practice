@@ -1,5 +1,6 @@
 package lv.sonya.gravitrips;
 
+import static lv.sonya.gravitrips.Coin.*;
 import java.util.Scanner;
 
 public class GameLauncher {
@@ -10,7 +11,7 @@ public class GameLauncher {
 	public static void gameLauncher() {
 
 		System.out.println("Hello! Welcome to Gravitrips game!");
-		System.out.println("Player 1 choose your coin - " + Coin.X + " or " + Coin.O);
+		System.out.println("Player 1 choose your coin - " + X + " or " + O);
 
 		Coin p1coin = chooseCoin();
 		Coin p2coin = p1coin.getOtherCoin();

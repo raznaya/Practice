@@ -13,7 +13,7 @@ public class PlayerHuman extends AbstractPlayer {
 
 	@Override
 	public int chooseColumn(Grid grid) {
-		int columnIndex = 0;
+		int columnIndex;
 		while (true) {
 			try {
 				columnIndex = Integer.valueOf(scanner.nextLine());

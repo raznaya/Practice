@@ -21,8 +21,8 @@ public class Grid {
 		for (int j = 0; j < rows; j++) {
 			int count = 0;
 			for (int i = 0; i < columns; i++) {
-				if (coin.equals(coins[j][i])) {
-					count = count + 1;
+				if (coin ==(coins[j][i])) {
+					count++;
 				} else {
 					count = 0;
 				}
@@ -38,8 +38,8 @@ public class Grid {
 		for (int j = columns - 1; j >= 0; j--) {
 			int count = 0;
 			for (int i = rows - 1; i >= 0; i--) {
-				if (coin.equals(coins[i][j])) {
-					count = count + 1;
+				if (coin ==(coins[i][j])) {
+					count++;
 				} else {
 					count = 0;
 				}
@@ -58,8 +58,8 @@ public class Grid {
 			int rMax = Math.min(rows - 1, diagonal);
 			for (int r = rMin; r <= rMax; ++r) {
 				int c = diagonal - r;
-				if (coin.equals(coins[r][c])) {
-					count = count + 1;
+				if (coin ==(coins[r][c])) {
+					count++;
 				} else {
 					count = 0;
 				}
@@ -78,8 +78,8 @@ public class Grid {
 				if (i + k > columns - 1) {
 					break;
 				}
-				if (coin.equals(coins[i][i + k])) {
-					count = count + 1;
+				if (coin ==(coins[i][i + k])) {
+					count++;
 				} else {
 					count = 0;
 				}
@@ -94,8 +94,8 @@ public class Grid {
 				if (i + k > rows - 1) {
 					break;
 				}
-				if (coin.equals(coins[i + k][i])) {
-					count = count + 1;
+				if (coin ==(coins[i + k][i])) {
+					count++;
 				} else {
 					count = 0;
 				}
