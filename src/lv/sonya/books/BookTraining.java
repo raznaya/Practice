@@ -1,6 +1,6 @@
 package lv.sonya.books;
 
-public class BookTest {
+public class BookTraining {
 
 	public static void test() {
 		Book sevenHabits = new Book(null, null, 0, 0);
