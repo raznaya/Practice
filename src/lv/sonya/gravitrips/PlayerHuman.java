@@ -13,17 +13,15 @@ public class PlayerHuman extends AbstractPlayer {
 
 	@Override
 	public int chooseColumn(Grid grid) {
-		int columnIndex;
-		while (true) {
+		int columnIndex = 0;
+		while (columnIndex < 1 || columnIndex > 7) {
+			System.out.println("Please enter number from 1 to 7!");
 			try {
 				columnIndex = Integer.valueOf(scanner.nextLine());
-				if (columnIndex < 1 || columnIndex > 7) {
-					throw new IllegalArgumentException();
-				}
-				return columnIndex;
 			} catch (Exception e) {
-				System.out.println("Please enter number from 1 to 7!");
+				// do nothing
 			}
 		}
+		return columnIndex;
 	}
 }
