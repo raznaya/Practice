@@ -7,11 +7,10 @@ import static lv.sonya.shopping.Menu.LOAD;
 import static lv.sonya.shopping.Menu.PRINT;
 import static lv.sonya.shopping.Menu.SAVE;
 
-import java.util.Scanner;
-
 public class ShoppingMain {
 
-	static Scanner scanner = new Scanner(System.in);
+	static User user = new User();
+	static ShoppingList myShoppingList = new ShoppingList();
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Shopping List program! You can choose some options to do:");
@@ -25,25 +24,58 @@ public class ShoppingMain {
 
 		int number;
 		do {
-			number = ShoppingList.userInput();
+			number = user.userCommandInput();
 			if (number == ADD.getIndex()) {
-				ShoppingList.addItem();
+				addItem();
 			}
 			if (number == PRINT.getIndex()) {
-				ShoppingList.listItem();
+				listItem();
 			}
 			if (number == DELETE.getIndex()) {
-				ShoppingList.deleteItem();
+				deleteItem();
 			}
 			if (number == SAVE.getIndex()) {
-				ShoppingList.saveList();
+				saveItem();
 			}
 			if (number == LOAD.getIndex()) {
-				ShoppingList.loadList();
+				loadItem();
 			}
 
 		} while (EXIT.getIndex() != number);
-		scanner.close();
+	}
+
+	public static void addItem() {
+		System.out.println("Please add a product name, price and category!");
+		String name = user.userInput();
+		System.out.println("Product name added: " + name);
+		double price = user.userDoubleInput();
+		System.out.println("Product price added: " + price);
+		String category = user.userInput();
+		System.out.println("Product category added: " + category);
+
+		Product product = new Product(name, price, category);
+		myShoppingList.add(product);
+	}
+
+	public static void deleteItem() {
+		System.out.println("Name an item to delete!!!");
+		String name = user.userInput();
+		myShoppingList.delete(name);
+		System.out.println("Item deleted: " + name);
+	}
+
+	public static void listItem() {
+		System.out.println(myShoppingList.getProducts());
+	}
+
+	public static void saveItem() {
+		myShoppingList.saveProducts();
+		System.out.println("File saved.");
+	}
+
+	public static void loadItem() {
+		myShoppingList.loadProducts();
+		System.out.println("File loaded.");
 	}
 
 }
