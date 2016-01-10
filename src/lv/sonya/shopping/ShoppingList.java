@@ -5,54 +5,50 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 
 public class ShoppingList {
-	static Scanner scanner = new Scanner(System.in);
-	static List<String> list = new ArrayList<>();
 
-	public static int userInput() {
-		int number;
-		number = Integer.valueOf(scanner.nextLine());
-		return number;
+	private List<Product> products = new ArrayList<>();
+
+	public void add(Product product) {
+		products.add(product);
 	}
 
-	public static void addItem() {
-		System.out.println("Please add an item!");
-		String name = scanner.nextLine();
-		list.add(name);
-		System.out.println("Item added: " + name);
+	public List<Product> getProducts() {
+		return products;
 	}
 
-	public static void listItem() {
-		System.out.println(list);
+	public void delete(String name) {
+		Iterator<Product> iterator = products.iterator();
+		while (iterator.hasNext()) {
+			Product product = iterator.next();
+			if (name.equals(product.getName())) {
+				iterator.remove();
+			}
+		}
 	}
 
-	public static void deleteItem() {
-		System.out.println("Name an item to delete!");
-		String name = scanner.nextLine();
-		list.remove(name);
-		System.out.println("Item deleted: " + name);
-	}
-
-	public static void saveList() {
-		try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(Paths.get("ShoopingList.txt")))) {
-			for (String a : list) {
+	public void saveProducts() {
+		try (PrintWriter writer = new PrintWriter(Files.newBufferedWriter(Paths.get("ShoppingList.txt")))) {
+			for (Product a : products) {
 				writer.println(a);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("File saved.");
 	}
 
-	public static void loadList() {
+	public void loadProducts() {
 		try {
-			list = Files.readAllLines(Paths.get("ShoopingList.txt"));
+			List<String> strings = Files.readAllLines(Paths.get("ShoppingList.txt"));
+			for (String string : strings) {
+				products.add(Product.fromString(string));
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("File loaded.");
+
 	}
 }
