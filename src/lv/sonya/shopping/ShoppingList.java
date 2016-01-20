@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import lv.sonya.shopping.ShoppingMain;
+
 public class ShoppingList {
 
 	private List<Product> products = new ArrayList<>();
@@ -50,6 +52,19 @@ public class ShoppingList {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
+	
+	public void searchByPrice(){
+	double number1 = ShoppingMain.enterSmallNumber();
+	double number2 = ShoppingMain.enterLargeNumber();
+	List<Product> temporary = new ArrayList<>();
+	Iterator<Product> iterator = products.iterator();
+	while (iterator.hasNext()) {
+		Product product = iterator.next();
+			if(product.price > number1 && product.price < number2){
+			temporary.add(product); 
+			}
+		} System.out.println(temporary.toString());
+	} 
 }
+
