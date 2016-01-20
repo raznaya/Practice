@@ -26,14 +26,4 @@ public class ShoppingListTest {
 		assertEquals(2, list.size());
 	}
 
-	@Test
-	public void testDelete() {
-		List<Product> list1 = new ArrayList<>();
-		list1.add(product1);
-		list1.add(product2);
-		list1.add(product3);
-		myShoppingList.deleteItem();
-		assertEquals(2, list1.size());
-	}
-
 }

@@ -6,7 +6,7 @@ public class Product {
 	public double price;
 	public String category;
 
-	private static final String DELIMETER = "||";
+	private static final String DELIMETER = "!!";
 
 	public Product(String name, double price, String category) {
 		this.name = name;

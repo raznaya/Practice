@@ -41,6 +41,7 @@ public class ShoppingList {
 	}
 
 	public void loadProducts() {
+		products.clear();
 		try {
 			List<String> strings = Files.readAllLines(Paths.get("ShoppingList.txt"));
 			for (String string : strings) {
