@@ -53,18 +53,31 @@ public class ShoppingList {
 			e.printStackTrace();
 		}
 	}
-	
-	public void searchByPrice(){
-	double number1 = ShoppingMain.enterSmallNumber();
-	double number2 = ShoppingMain.enterLargeNumber();
-	List<Product> temporary = new ArrayList<>();
-	Iterator<Product> iterator = products.iterator();
-	while (iterator.hasNext()) {
-		Product product = iterator.next();
-			if(product.price > number1 && product.price < number2){
-			temporary.add(product); 
-			}
-		} System.out.println(temporary.toString());
-	} 
-}
 
+	public void searchByPrice() {
+		double number1 = ShoppingMain.enterSmallNumber();
+		double number2 = ShoppingMain.enterLargeNumber();
+		List<Product> temporary = new ArrayList<>();
+		Iterator<Product> iterator = products.iterator();
+		while (iterator.hasNext()) {
+			Product product = iterator.next();
+			if (product.price > number1 && product.price < number2) {
+				temporary.add(product);
+			}
+		}
+		System.out.println(temporary.toString());
+	}
+
+	public void searchByCategory() {
+		String category = ShoppingMain.enterCategory();
+		List<Product> temporary = new ArrayList<>();
+		Iterator<Product> iterator = products.iterator();
+		while (iterator.hasNext()) {
+			Product product = iterator.next();
+			if (product.category.equals(category)) {
+				temporary.add(product);
+			}
+		}
+		System.out.println(temporary);
+	}
+}
