@@ -7,6 +7,7 @@ import static lv.sonya.shopping.Menu.LOAD;
 import static lv.sonya.shopping.Menu.PRINT;
 import static lv.sonya.shopping.Menu.SAVE;
 import static lv.sonya.shopping.Menu.SEARCHBYPRICE;
+import static lv.sonya.shopping.Menu.SEARCHBYCATEGORY;
 
 public class ShoppingMain {
 
@@ -21,6 +22,7 @@ public class ShoppingMain {
 		System.out.println(SAVE.getIndex() + " - Save list to file");
 		System.out.println(LOAD.getIndex() + " - Load list from file");
 		System.out.println(SEARCHBYPRICE.getIndex() + " - Search products by price");
+		System.out.println(SEARCHBYCATEGORY.getIndex() + " - Search products by category");
 		System.out.println(EXIT.getIndex() + " - Exit");
 		System.out.println("Input the number of option you would like to choose!");
 
@@ -44,6 +46,9 @@ public class ShoppingMain {
 			}
 			if (number == SEARCHBYPRICE.getIndex()) {
 				searchPrice();
+			}
+			if (number == SEARCHBYCATEGORY.getIndex()) {
+				searchCategory();
 			}
 
 		} while (EXIT.getIndex() != number);
@@ -82,22 +87,31 @@ public class ShoppingMain {
 		myShoppingList.loadProducts();
 		System.out.println("File loaded.");
 	}
-	
-	public static void searchPrice(){
+
+	public static void searchPrice() {
 		myShoppingList.searchByPrice();
 	}
 	
-	public static double enterSmallNumber(){
+	public static void searchCategory() {
+		myShoppingList.searchByCategory();
+	}
+
+	public static double enterSmallNumber() {
 		System.out.println("Enter price range: search from");
 		double smallNumber = user.userDoubleInput();
 		return smallNumber;
-		
 	}
-	
-	public static double enterLargeNumber(){
+
+	public static double enterLargeNumber() {
 		System.out.println("Enter price range: search to");
 		double largeNumber = user.userDoubleInput();
 		return largeNumber;
-}
-	
+	}
+
+	public static String enterCategory() {
+		System.out.println("Enter category name");
+		String category = user.userInput();
+		return category;
+	}
+
 }

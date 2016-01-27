@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import lv.sonya.shopping.ShoppingList;
+
 public class ShoppingListTest {
 
 	static List<Product> list = new ArrayList<>();

@@ -63,6 +63,22 @@ public class ShoppingList {
 				temporary.add(product);
 			}
 		}
+<<<<<<< HEAD
+=======
+		System.out.println(temporary.toString());
+	}
+
+	public void searchByCategory() {
+		String category = ShoppingMain.enterCategory();
+		List<Product> temporary = new ArrayList<>();
+		Iterator<Product> iterator = products.iterator();
+		while (iterator.hasNext()) {
+			Product product = iterator.next();
+			if (product.category.equals(category)) {
+				temporary.add(product);
+			}
+		}
+>>>>>>> db25ac2ff61c4b27aa6814ad881443ed6fec99ed
 		System.out.println(temporary);
 	}
 }
