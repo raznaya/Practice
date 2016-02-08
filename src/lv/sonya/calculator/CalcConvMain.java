@@ -1,20 +1,23 @@
 package lv.sonya.calculator;
 
-import static lv.sonya.calculator.Operations.ADDITION;
-import static lv.sonya.calculator.Operations.DIVIDE;
-import static lv.sonya.calculator.Operations.MULTIPLICATION;
-import static lv.sonya.calculator.Operations.SUBSTRACTION;
 
 public class CalcConvMain {
-
+	
+	static User user = new User();
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to calculator and converter program!");
-		System.out.println("Command options: ");
-
-		Calculator calc = new Calculator();
-
-
-
 		
+		Calculator calculator = new Calculator(0, 0);
+		
+		while(true){
+		System.out.println("Write down operation!");
+		calculator.performCalculation();
+		}
+	
 }
+	
+	
+	
+	
 }
