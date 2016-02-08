@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import lv.sonya.shopping.ShoppingMain;
-
 public class ShoppingList {
 
 	private List<Product> products = new ArrayList<>();
@@ -65,6 +63,8 @@ public class ShoppingList {
 				temporary.add(product);
 			}
 		}
+<<<<<<< HEAD
+=======
 		System.out.println(temporary.toString());
 	}
 
@@ -78,6 +78,7 @@ public class ShoppingList {
 				temporary.add(product);
 			}
 		}
+>>>>>>> db25ac2ff61c4b27aa6814ad881443ed6fec99ed
 		System.out.println(temporary);
 	}
 }
