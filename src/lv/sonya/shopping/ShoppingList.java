@@ -63,9 +63,7 @@ public class ShoppingList {
 				temporary.add(product);
 			}
 		}
-<<<<<<< HEAD
-=======
-		System.out.println(temporary.toString());
+		System.out.println(temporary);
 	}
 
 	public void searchByCategory() {
@@ -78,7 +76,6 @@ public class ShoppingList {
 				temporary.add(product);
 			}
 		}
->>>>>>> db25ac2ff61c4b27aa6814ad881443ed6fec99ed
 		System.out.println(temporary);
 	}
 }

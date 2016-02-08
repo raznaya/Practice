@@ -1,5 +1,8 @@
 package lv.sonya.shopping;
 
+import static lv.sonya.shopping.Menu.ADD;
+import static lv.sonya.shopping.Menu.EXIT;
+
 import java.util.Scanner;
 
 public class User {
@@ -27,8 +30,10 @@ public class User {
 
 	public int userCommandInput() {
 		int number = 0;
-		while (number < 1 || number > 6) {
-			System.out.println("Please enter number from 1 to 6!");
+		int commandFirst = ADD.getIndex();
+		int commandLast = EXIT.getIndex();
+		while (number < commandFirst || number > commandLast) {
+			System.out.println("Please enter number from " + commandFirst + " to " + commandLast);
 			try {
 				number = Integer.valueOf(scanner.nextLine());
 			} catch (Exception e) {
