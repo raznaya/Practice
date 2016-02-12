@@ -36,9 +36,7 @@ public class Converter {
 		return numberToConvert / 12;
 	}
 
-	public void operationInput() {
-
-		String input = User.userInput();
+	public void performConvertion(String input) {
 		parts = input.split(" ");
 		numberToConvert = Double.parseDouble(parts[0]);
 		whatToConvert = parts[1];
@@ -60,10 +58,5 @@ public class Converter {
 			result = inchesToFeet();
 		}
 		return result;
-	}
-
-	public void performConvertion() {
-		operationInput();
-		System.out.println("= " + extractOperation());
 	}
 }
