@@ -1,20 +1,19 @@
 package lv.sonya.calculator;
 
-import static lv.sonya.calculator.CalcOperations.DIVIDE;
 import static lv.sonya.calculator.CalcOperations.ADDITION;
-import static lv.sonya.calculator.CalcOperations.SUBSTRACTION;
+import static lv.sonya.calculator.CalcOperations.DIVIDE;
 import static lv.sonya.calculator.CalcOperations.MULTIPLICATION;
+import static lv.sonya.calculator.CalcOperations.SUBSTRACTION;
 
 public class Calculator {
 
-	
-	private static String[] parts;
-	private static double number1;
-	private  static double number2;
-	
-	public Calculator(double number1, double number2){
-		Calculator.number1 = number1;
-		Calculator.number2 = number2;
+	private String[] parts;
+	private double number1;
+	private double number2;
+
+	public Calculator(double number1, double number2) {
+		this.number1 = number1;
+		this.number2 = number2;
 	}
 
 	public double divide() {
@@ -33,7 +32,7 @@ public class Calculator {
 		return number1 + number2;
 	}
 
-	public static void operationInput() {
+	public void operationInput() {
 		String input = User.userInput();
 		parts = input.split(" ");
 		number1 = Double.parseDouble(parts[0]);
@@ -59,7 +58,7 @@ public class Calculator {
 			}
 		}
 		return result;
-		
+
 	}
 
 	public void performCalculation() {
