@@ -2,30 +2,33 @@ package lv.sonya.calculator;
 
 public class CalcConvMain {
 
-	static User user = new User();
+	User user = new User();
+	public static String text;
 
 	public static void main(String[] args) {
+
+		CalcConvMain calcConv = new CalcConvMain();
 		System.out.println("Welcome to calculator and converter program!");
-		chooseConvOrCalc();
+
+		do {
+			text = User.userInput();
+			calcConv.checkConvertOrCalculate(text);
+		} while (true);
 	}
 
-	public static void chooseConvOrCalc() {
-		while (true) {
-			System.out.println("Calculator or converter?");
-			try {
-				String text = User.userInput();
-				if (text.equals("calculator")) {
-					Calculator calculator = new Calculator(0, 0);
-					calculator.performCalculation();
-				}
-				if (text.equals("converter")) {
-					Converter converter = new Converter(0);
-					converter.performConvertion();
-				}
-			} catch (Exception e) {
-				// do nothing
+	public void checkConvertOrCalculate(String text) {
+		try {
+			String search = "to";
+			if (text.toLowerCase().indexOf(search.toLowerCase()) != -1) {
+				Converter converter = new Converter(0);
+				converter.performConvertion(text);
+				System.out.println("= " + converter.extractOperation());
+			} else {
+				Calculator calculator = new Calculator(0, 0);
+				calculator.performCalculation(text);
+				System.out.println("= " + calculator.extractOperation());
 			}
+		} catch (Exception e) {
 		}
 	}
-
 }
