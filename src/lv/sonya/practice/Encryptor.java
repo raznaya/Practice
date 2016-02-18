@@ -19,14 +19,11 @@ public class Encryptor {
 	
 	public void encrypt(String input){
 		String reversedText = new StringBuilder(input).reverse().toString();
-		char second = reversedText.charAt(1);
-		char fourth = reversedText.charAt(3);
-		char seventh = reversedText.charAt(6);
-		char eighth = reversedText.charAt(7);
-		char[] charArray = new char[]{second, fourth, seventh, eighth};
-		String chars = charArray.toString();
-		String reversedChars = new StringBuilder(chars).reverse().toString();
-		String[] newCharArray = reversedChars.split("");
+		System.out.println(reversedText);
+		String[] temporary = reversedText.split("");
+		for(int i : temporary[]){
+			
+		}
 	}
 
 }
