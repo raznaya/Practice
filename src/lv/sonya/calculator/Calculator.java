@@ -33,6 +33,7 @@ public class Calculator {
 	}
 
 	public void performCalculation(String input) {
+
 		parts = input.split(" ");
 		number1 = Double.parseDouble(parts[0]);
 		number2 = Double.parseDouble(parts[2]);
