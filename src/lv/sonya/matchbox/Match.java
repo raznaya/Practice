@@ -2,6 +2,13 @@ package lv.sonya.matchbox;
 
 public class Match {
 
-	static int matchCount = 100;
-	boolean isFired = false;
+	private boolean isFired = false;
+
+	public boolean isFired() {
+		return isFired;
+	}
+
+	public void setFired(boolean isFired) {
+		this.isFired = isFired;
+	}
 }
