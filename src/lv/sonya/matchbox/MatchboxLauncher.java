@@ -38,7 +38,6 @@ public class MatchboxLauncher {
 				box.takeMatches(count);
 			}
 			if (text.equals("take one")) {
-				System.out.println("How many?");
 				box.takeMatch();
 			}
 			if (text.equals("close")) {
@@ -48,8 +47,14 @@ public class MatchboxLauncher {
 			if (text.equals("count")) {
 				System.out.println(box.countMatches());
 			}
+			if (text.equals("fire")) {
+				box.fireMatch(new Match());
+				System.out.println("Match is fired!");
+			}
 		} while (true);
 
 	}
+	
+	
 
 }

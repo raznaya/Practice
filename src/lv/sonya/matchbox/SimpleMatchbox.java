@@ -7,23 +7,25 @@ import java.util.Stack;
 public class SimpleMatchbox implements Matchbox {
 
 	private boolean isOpen;
-	private int sandpaperUseInPercent;
+	int leftPercent;
 	private Stack<Match> matches;
 	private int matchCount = 30;
+	private boolean matchIsTaken = false;
+
 
 	public SimpleMatchbox() {
 		this.matches = new Stack<>();
 		for (int i = 0; i < matchCount; i++) {
 			matches.add(new Match());
 		}
-		this.sandpaperUseInPercent = 100;
+		this.leftPercent = 100;
 		this.isOpen = false;
 	}
 
 	@Override
 	public void open() {
 		isOpen = true;
-
+		matchIsTaken = false;
 	}
 
 	@Override
@@ -35,12 +37,14 @@ public class SimpleMatchbox implements Matchbox {
 	@Override
 	public void putMatches(Collection<Match> matches) {
 		checkStatus();
+		matchIsTaken = false;
 		this.matches.addAll(matches);
 	}
 
 	@Override
 	public Match takeMatch() {
 		checkStatus();
+		matchIsTaken();
 		return matches.pop();
 	}
 
@@ -51,18 +55,21 @@ public class SimpleMatchbox implements Matchbox {
 		for (int i = 0; i < max; i++) {
 			temporary.add(takeMatch());
 		}
+		matchIsTaken();
 		return temporary;
 	}
 
 	@Override
 	public boolean fireMatch(Match match) {
-		if (useSandpaper() == 0) {
+		if (useSandpaper() == 0 ) {
 			throw new IllegalStateException("Sandpaper is used, you can`t fire a match!");
+		} else if(matchIsTaken()== false) {
+			throw new IllegalStateException("Match isn`t taken yet!");
 		} else {
 			match.setFired(true);
+			useSandpaper();
 			return true;
 		}
-
 	}
 
 	@Override
@@ -79,6 +86,15 @@ public class SimpleMatchbox implements Matchbox {
 
 	@Override
 	public int useSandpaper() {
-		return matchCount - matchCount / sandpaperUseInPercent;
+		int leftMatches = matchCount - 1;
+		int onePercent = matchCount / 100;
+		leftPercent = leftMatches / onePercent;
+		System.out.println("Feel free to use +" + leftPercent + " % of sandpaper" );
+		return leftPercent;
+	}
+	
+	@Override
+	public boolean matchIsTaken(){
+		return matchIsTaken = true;
 	}
 }
