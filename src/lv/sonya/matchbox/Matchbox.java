@@ -18,7 +18,7 @@ public interface Matchbox {
 
 	public int countMatches();
 
-	public int useSandpaper();
+	public void useSandpaper();
 	
 	public boolean matchIsTaken();
 	

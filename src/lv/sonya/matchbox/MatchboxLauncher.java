@@ -39,6 +39,7 @@ public class MatchboxLauncher {
 			}
 			if (text.equals("take one")) {
 				box.takeMatch();
+				System.out.println("One match is taken");
 			}
 			if (text.equals("close")) {
 				box.close();
